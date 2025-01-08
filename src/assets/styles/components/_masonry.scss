@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 15px;
+
+  @include m.mq(sm-min) {
+    margin-right: 0;
+  }
+}
+
+.photos__sizer,
+.photos__item {
+  width: 100%;
+  transition: 0.3s;
+  margin-bottom: 15px;
+
+  @include m.mq(sm-min) {
+    width: calc(100% / 2 - 15px);
+  }
+
+  @include m.mq(md-min) {
+    width: calc(100% / 3 - 15px);
+  }
+}
+
+.photos__item > a {
+  filter: grayscale(90%);
+  transition: filter 0.3s;
+
+  &:hover,
+  &:focus {
+    filter: grayscale(0);
+  }
+}

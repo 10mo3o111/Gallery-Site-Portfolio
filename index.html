@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Site Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italianno&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__vegas"></div>
+      <div class="header__title">Gallery Site Portfolio</div>
+      <small class="header__copyright">© 10mo3 All Rights Reserved.</small>
+      <ul class="header__sns">
+        <li>
+          <a href="#"><img src="img/ico_insta.svg" alt="Instagram" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="img/ico_fb.svg" alt="Facebook" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="img/ico_tw.svg" alt="Twitter" /></a>
+        </li>
+      </ul>
+    </header>
+    <button
+      class="hamburger"
+      aria-label="ナビゲーションを開閉"
+      aria-controls="nav"
+      aria-expanded="false"
+    >
+      <span class="hamburger__line"></span>
+    </button>
+    <nav class="nav" id="nav" aria-hidden="true" aria-label="Main Navigation">
+      <ul class="nav__menu">
+        <li><a class="nav__link" href="#">Top</a></li>
+        <li><a class="nav__link" href="#">About</a></li>
+        <li><a class="nav__link" href="#">Service</a></li>
+        <li><a class="nav__link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main id="app">
+      <nav class="photosnav" aria-label="Photo Navigation">
+        <ul class="photosnav__list">
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('all')"
+              v-bind:class="{'is-active' : filter === 'all'}"
+            >
+              All
+            </button>
+          </li>
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('flower')"
+              v-bind:class="{'is-active' : filter === 'flower'}"
+            >
+              Flower
+            </button>
+          </li>
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('sky')"
+              v-bind:class="{'is-active' : filter === 'sky'}"
+            >
+              Sky
+            </button>
+          </li>
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('forest')"
+              v-bind:class="{'is-active' : filter === 'forest'}"
+            >
+              Forest
+            </button>
+          </li>
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('sea')"
+              v-bind:class="{'is-active' : filter === 'sea'}"
+            >
+              Sea
+            </button>
+          </li>
+          <li>
+            <button
+              class="photosnav__button"
+              type="button"
+              v-on:click="updateFilter('mountain')"
+              v-bind:class="{'is-active' : filter === 'mountain'}"
+            >
+              Mountain
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div class="photos" ref="photos">
+        <div class="photos__sizer"></div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'flower'"
+        >
+          <a
+            href="/img/flower/img_flower_01.jpg"
+            data-lightbox="flower"
+            data-title="flower"
+            data-alt="flower"
+          >
+            <img src="/img/flower/img_flower_01.jpg" alt="flower"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sky'">
+          <a
+            href="/img/sky/img_sky_02.jpg"
+            data-lightbox="sky"
+            data-title="sky"
+            data-alt="sky"
+          >
+            <img src="/img/sky/img_sky_02.jpg" alt="sky"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'forest'"
+        >
+          <a
+            href="/img/forest/img_forest_01.jpg"
+            data-lightbox="forest"
+            data-title="forest"
+            data-alt="forest"
+          >
+            <img src="/img/forest/img_forest_01.jpg" alt="forest"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sea'">
+          <a
+            href="/img/sea/img_sea_03.jpg"
+            data-lightbox="sea"
+            data-title="sea"
+            data-alt="sea"
+          >
+            <img src="/img/sea/img_sea_03.jpg" alt="sea"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'mountain'"
+        >
+          <a
+            href="/img/mountain/img_mountain_01.jpg"
+            data-lightbox="mountain"
+            data-title="mountain"
+            data-alt="mountain"
+          >
+            <img src="/img/mountain/img_mountain_01.jpg" alt="mountain"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sky'">
+          <a
+            href="/img/sky/img_sky_04.jpg"
+            data-lightbox="sky"
+            data-title="sky"
+            data-alt="sky"
+          >
+            <img src="/img/sky/img_sky_04.jpg" alt="sky"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'flower'"
+        >
+          <a
+            href="/img/flower/img_flower_03.jpg"
+            data-lightbox="flower"
+            data-title="flower"
+            data-alt="flower"
+          >
+            <img src="/img/flower/img_flower_03.jpg" alt="flower"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'forest'"
+        >
+          <a
+            href="/img/forest/img_forest_03.jpg"
+            data-lightbox="forest"
+            data-title="forest"
+            data-alt="forest"
+          >
+            <img src="/img/forest/img_forest_03.jpg" alt="forest"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sea'">
+          <a
+            href="/img/sea/img_sea_05.jpg"
+            data-lightbox="sea"
+            data-title="sea"
+            data-alt="sea"
+          >
+            <img src="/img/sea/img_sea_05.jpg" alt="sea"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'forest'"
+        >
+          <a
+            href="/img/forest/img_forest_06.jpg"
+            data-lightbox="forest"
+            data-title="forest"
+            data-alt="forest"
+          >
+            <img src="/img/forest/img_forest_06.jpg" alt="forest" />
+          </a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'mountain'"
+        >
+          <a
+            href="/img/mountain/img_mountain_03.jpg"
+            data-lightbox="mountain"
+            data-title="mountain"
+            data-alt="mountain"
+          >
+            <img src="/img/mountain/img_mountain_03.jpg" alt="mountain"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sky'">
+          <a
+            href="/img/sky/img_sky_03.jpg"
+            data-lightbox="sky"
+            data-title="sky"
+            data-alt="sky"
+          >
+            <img src="/img/sky/img_sky_03.jpg" alt="sky"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'flower'"
+        >
+          <a
+            href="/img/flower/img_flower_05.jpg"
+            data-lightbox="flower"
+            data-title="flower"
+            data-alt="flower"
+          >
+            <img src="/img/flower/img_flower_05.jpg" alt="flower"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'forest'"
+        >
+          <a
+            href="/img/forest/img_forest_05.jpg"
+            data-lightbox="forest"
+            data-title="forest"
+            data-alt="forest"
+          >
+            <img src="/img/forest/img_forest_05.jpg" alt="forest" />
+          </a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sea'">
+          <a
+            href="/img/sea/img_sea_12.jpg"
+            data-lightbox="sea"
+            data-title="sea"
+            data-alt="sea"
+          >
+            <img src="/img/sea/img_sea_12.jpg" alt="sea"
+          /></a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'mountain'"
+        >
+          <a
+            href="/img/mountain/img_mountain_05.jpg"
+            data-lightbox="mountain"
+            data-title="mountain"
+            data-alt="mountain"
+          >
+            <img src="/img/mountain/img_mountain_05.jpg" alt="mountain"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sky'">
+          <a
+            href="/img/sky/img_sky_15.jpg"
+            data-lightbox="sky"
+            data-title="sky"
+            data-alt="sky"
+          >
+            <img src="/img/sky/img_sky_15.jpg" alt="sky" />
+          </a>
+        </div>
+        <div
+          class="photos__item"
+          v-show="filter === 'all' || filter === 'flower'"
+        >
+          <a
+            href="/img/flower/img_flower_15.jpg"
+            data-lightbox="flower"
+            data-title="flower"
+            data-alt="flower"
+          >
+            <img src="/img/flower/img_flower_15.jpg" alt="flower"
+          /></a>
+        </div>
+        <div class="photos__item" v-show="filter === 'all' || filter === 'sea'">
+          <a
+            href="/img/sea/img_sea_02.jpg"
+            data-lightbox="sea"
+            data-title="sea"
+            data-alt="sea"
+          >
+            <img src="/img/sea/img_sea_02.jpg" alt="sea"
+          /></a>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <button type="button" class="footer__toppage --rising">Scroll</button>
+    </footer>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="module" src="/src/assets/js/main.js"></script>
+  </body>
+</html>

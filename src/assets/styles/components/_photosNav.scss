@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.photosnav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: v.$color-base;
+
+  @include m.z-index(photosnav);
+}
+
+.photosnav__list {
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: scroll;
+
+  @include m.mq(sm-min) {
+    justify-content: center;
+    overflow-x: hidden;
+  }
+}
+
+.photosnav__list > li {
+  padding: 20px 15px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.photosnav__button {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  transition: 0.2s;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    margin: 0 auto;
+    background: v.$color-link;
+    transition: 0.3s;
+    content: "";
+  }
+
+  &.is-active,
+  &:hover {
+    opacity: 1;
+
+    &::after {
+      width: 50%;
+    }
+  }
+}
